@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+Disallow: /mod/
+Allow: /$
+Allow: /rules/
+Allow: /hall-of-fame/
