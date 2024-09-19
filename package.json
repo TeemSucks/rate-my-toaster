@@ -1,0 +1,23 @@
+{
+  "name": "rate-my-toaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "bootstrap": "^5.3.3",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-basic-auth": "^1.2.1",
+    "multer": "1.4.5-lts.1",
+    "sqlite3": "^5.1.7",
+    "tailwindcss": "^3.4.11"
+  }
+}
