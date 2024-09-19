@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toaster Comments</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Comments for Toaster</h1>
+
+  <div class="toaster">
+    <img src="/uploads/<%= toaster.image %>" alt="Toaster Image" style="max-width: 100%; max-height: 300px;">
+    <p>Current Average Rating: <%= toaster.rating.toFixed(1) %>/10</p>
+    <p>Total Votes: <%= toaster.votes %></p>
+  </div>
+
+  <h2>Add a Comment</h2>
+  <form action="/toasters/<%= toaster.id %>/comment" method="post">
+    <textarea name="comment" rows="4" cols="50" required></textarea><br>
+    <button type="submit">Submit Comment</button>
+  </form>
+
+  <hr>
+
+  <h2>Comments</h2>
+  <div class="comments-section">
+    <% if (comments && comments.length > 0) { %>
+      <% comments.forEach(function(comment) { %>
+        <div class="comment">
+          <p><%= comment.comment %></p>
+          <small>Posted on: <%= new Date(comment.created_at).toLocaleString() %></small>
+        </div>
+        <hr>
+      <% }); %>
+    <% } else { %>
+      <p>No comments yet. Be the first to comment!</p>
+    <% } %>
+  </div>
+
+  <a href="/">Back to Toasters</a>
+</body>
+</html>

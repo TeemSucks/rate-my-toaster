@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+</head>
+<body>
+  <main>
+    <h1>Admin Panel</h1>
+    <h2>Delete a Toaster Post</h2>
+    <form action="/mod/delete" method="post">
+      <label for="id">Toaster ID:</label>
+      <input type="text" id="id" name="id" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Delete Post</button>
+    </form>
+    <a href="/">Back to Home</a>
+  </main>
+</body>
+</html>
+

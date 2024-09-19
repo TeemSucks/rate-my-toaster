@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toaster Hall of Fame</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Toaster Hall of Fame</h1>
+
+  <div class="toaster-container">
+    <% if (toasters && toasters.length > 0) { %>
+      <% toasters.forEach(function(toaster) { %>
+        <div class="toaster">
+          <img src="/uploads/<%= toaster.image %>" alt="Toaster Image" style="max-width: 100%; max-height: 300px;">
+          <p>Rating: <%= toaster.rating.toFixed(1) %>/10</p>
+          <p>Total Votes: <%= toaster.votes %></p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No toasters in the Hall of Fame yet!</p>
+    <% } %>
+  </div>
+
+  <div class="banner">
+    <img src="<%= banner %>" alt="Banner Ad">
+  </div>
+
+  <a href="/">Back to Toasters</a>
+</body>
+</html>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rate My Toaster</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Rate My Toaster</h1>
+
+  <a href="/hall-of-fame">View Toaster Hall of Fame</a>
+
+  <form action="/submit" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" accept=".png, .jpg, .jpeg, .webp" required>
+    <button type="submit">Submit Toaster</button>
+  </form>
+
+  <a href="https://discord.gg/YzA8tWTM" target="_blank">Support</a>, <a href="/rules">Rules</a>
+
+  <hr>
+
+  <p>
+    <b>ANNOUNCEMENT</b>: We need help..<br />
+    Please share this website with your fellow comrades and toaster rateing enthusiast as this website is dying.
+  </p>
+
+  <hr>
+
+  <div class="toaster-container">
+    <% if (toasters && toasters.length > 0) { %>
+      <% toasters.forEach(function(toaster) { %>
+        <div class="toaster">
+          <img src="/uploads/<%= toaster.image %>" alt="Toaster Image" style="max-width: 100%; max-height: 300px;">
+          <% if (cookies && cookies[`voted_on_${toaster.id}`]) { %>
+            <p>You rated this toaster: <%= cookies[`voted_on_${toaster.id}`] %>/10</p>
+          <% } else { %>
+            <form action="/rate/<%= toaster.id %>" method="post">
+              <label>Rate this toaster:</label>
+              <input type="number" name="rating" min="1" max="10" required>
+              <button type="submit">Submit Rating</button>
+            </form>
+          <% } %>
+          <p>Current Average Rating: <%= toaster.rating.toFixed(1) %>/10</p>
+          <p>Total Votes: <%= toaster.votes %></p>
+	  <button><a href="/toasters/<%= toaster.id %>/comments" style="text-decoration: none; color: inherit; cursor: default;       /*">Comments</a></button>
+	  <p style="display: none;"><%= toaster.id %> </p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No toasters submitted yet!</p>
+    <% } %>
+  </div>
+
+  <div class="banner">
+    <img src="<%= banner %>" alt="Banner Ad">
+  </div>
+</body>
+</html>
+
